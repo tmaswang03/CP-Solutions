@@ -1,52 +1,35 @@
-#include <iostream>
-#include <stack>
+#include<bits/stdc++.h>
+#define boost() cin.tie(0); cin.sync_with_stdio(0);
+#define scan(x) do{while((x=getchar())<'0'); for(x-='0'; '0'<=(_=getchar()); x=(x<<3)+(x<<1)+_-'0');}while(0)
+#define REP(i, N) for(int i = 0; i < N; ++i)
+#define ms(a,b) memset(a,b,sizeof(a));
+#define mp make_pair
+#define pb push_back
+#define pii pair<int, int>
+#define s second
+#define f first
+char _;
+void scana(){}template<class T, class...A> void scana(T&t, A&...a) { scan(t); scana(a...); }
+typedef  unsigned long long ull;
+typedef long long ll;
+typedef long double ld;
+const ll MM = 1e5+10;
 using namespace std;
-
-
-void gc(int &x)
-    {
-        bool neg=false;
-        register int c;
-        x =0;
-        c=getchar();
-        if(c=='-')
-        {
-            neg = true;
-            c=getchar();
+int T, N, a[MM];
+int main()
+{
+    cin>>T;
+    for(int t = 0; t < T; ++t) {
+        cin>>N; int nxt = 1; stack<int> st;
+        for(int i = 0; i < N; ++i) cin>>a[i];
+        for(int i = N-1; i >= 0; --i) {
+            st.push(a[i]);
+            while(!st.empty() && nxt == st.top()) {
+                st.pop(); ++nxt;
+            }
         }
-        for(;(c>47 && c<58);c=getchar())
-            x = (x<<1) + (x<<3) +c -48;
-        if(neg)
-            x *=-1;
+        if(nxt==N+1) cout<<"Y\n";
+        else cout<<"N\n";
     }
-
-int main() {
-    cin.tie(0);
-    cin.sync_with_stdio(0);
-  int t; gc(t);
-  for(int i = 0 ; i < t; ++i){
-    stack<int>s;
-    int N; gc(N);
-    int a = 0;
-    stack<int>q;
-    for(int i = 0 ; i < N; ++i){
-     int j; gc(j);
-      q.push(j);
-    }
-    for(int i = 0 ; i < N; ++i){
-      s.push(q.top());
-      q.pop();
-      while(!s.empty() && s.top()==a+1){
-        ++a;
-        s.pop();
-      }
-    }
-    if(!s.empty()){
-      cout<<"N"<<endl;
-    }
-    else{
-      cout<<"Y"<<endl;
-    }
-  }
-  return 0;
+    return 0;
 }

@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1599836240 source:e:\codeforces\a. reverse a substring\main.cpp
+	<bits/stdc++.h>
+	<ext/pb_ds/assoc_container.hpp>
+

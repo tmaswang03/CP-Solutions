@@ -13,7 +13,6 @@ bool pho[MAXN], leaf[MAXN];
 int diameter = 0, ind;
 vector <int> v[MAXN];
 void dfs(int node, int parent){
-
     for(auto && i : v[node]){
         if(i != parent){
             dfs(i,node);

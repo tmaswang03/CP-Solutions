@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1599427808 source:e:\dmoj\dmopc '16 contest 1 p5 - blood tubes\main.cpp
+	<bits/stdc++.h>
+	<ext/pb_ds/assoc_container.hpp>
+

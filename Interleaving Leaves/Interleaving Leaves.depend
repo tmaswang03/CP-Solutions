@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1600212926 source:e:\dmoj\interleaving leaves\main.cpp
+	<bits/stdc++.h>
+	<ext/pb_ds/assoc_container.hpp>
+

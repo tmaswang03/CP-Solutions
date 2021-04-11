@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1599428899 source:e:\dmoj\s1 - an array problem\mock ccc '18 contest 2 j3\main.cpp
+	<bits/stdc++.h>
+	<ext/pb_ds/assoc_container.hpp>
+

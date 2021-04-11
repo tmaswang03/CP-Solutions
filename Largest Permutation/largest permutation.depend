@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1582953157 source:e:\dmoj\largest permutation\main.cpp
+	<iostream>
+	<vector>
+	<algorithm>
+

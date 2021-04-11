@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1599675189 source:e:\dmoj\coci '08 contest 3 #5 bst\main.cpp
+	<bits/stdc++.h>
+	<ext/pb_ds/assoc_container.hpp>
+

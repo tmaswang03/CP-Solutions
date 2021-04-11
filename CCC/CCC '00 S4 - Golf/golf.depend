@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1587597026 source:e:\dmoj\golf\main.cpp
+	<iostream>
+	<vector>
+	<queue>
+	<unordered_map>
+	<cstring>
+	<stdio.h>
+

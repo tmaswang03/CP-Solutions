@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1583719801 source:e:\dmoj\absolutely acidic\main.cpp
+	<iostream>
+	<algorithm>
+	<stdlib.h>
+

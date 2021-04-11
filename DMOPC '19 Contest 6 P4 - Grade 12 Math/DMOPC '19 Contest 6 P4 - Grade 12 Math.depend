@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1598119589 source:e:\dmoj\dmopc '19 contest 6 p4 - grade 12 math\main.cpp
+	<bits/stdc++.h>
+	<ext/pb_ds/assoc_container.hpp>
+

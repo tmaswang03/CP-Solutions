@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1587148225 source:e:\dmoj\graf and zeppelin\main.cpp
+	<iostream>
+	<vector>
+	<queue>
+	<cstring>
+

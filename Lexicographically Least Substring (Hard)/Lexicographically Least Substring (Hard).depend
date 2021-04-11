@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1598745101 source:e:\dmoj\lexicographically least substring (hard)\main.cpp
+	<bits/stdc++.h>
+	<ext/pb_ds/assoc_container.hpp>
+

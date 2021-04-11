@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1600212690 source:e:\dmoj\maximum sum\main.cpp
+	<bits/stdc++.h>
+	<ext/pb_ds/assoc_container.hpp>
+

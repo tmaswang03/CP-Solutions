@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1599430193 source:e:\dmoj\usaco 2020 january bronze p1 - word processor\main.cpp
+	<bits/stdc++.h>
+	<ext/pb_ds/assoc_container.hpp>
+

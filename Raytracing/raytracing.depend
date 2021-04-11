@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1587469459 source:e:\dmoj\raytracing\main.cpp
+	<iostream>
+	<vector>
+	<queue>
+	<unordered_map>
+	<cstring>
+	<stdio.h>
+

@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1598305649 source:e:\dmoj\binary indexed tree test\main.cpp
+	<bits/stdc++.h>
+	<ext/pb_ds/assoc_container.hpp>
+

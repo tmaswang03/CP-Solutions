@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1591029972 source:e:\dmoj\geo series calc\arithmetic\main.cpp
+	<iostream>
+	<math.h>
+

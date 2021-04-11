@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1586637816 source:e:\dmoj\convex hull\main.cpp
+	<iostream>
+	<vector>
+	<queue>
+	<cstring>
+	<tuple>
+

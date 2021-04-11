@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1582168694 source:e:\dmoj\jarvis\main.cpp
+	<iostream>
+	<vector>
+	<algorithm>
+

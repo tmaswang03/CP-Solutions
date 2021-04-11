@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1587181215 source:e:\dmoj\chocolate day\main.cpp
+	<iostream>
+	<cstring>
+

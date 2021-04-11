@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1583477443 source:e:\dmoj\dealornodeal\main.cpp
+	<iostream>
+	<vector>
+

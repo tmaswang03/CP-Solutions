@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1583121240 source:e:\dmoj\prime factorization\main.cpp
+	<iostream>
+	<vector>
+	<math.h>
+

@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1599798361 source:e:\dmoj\ccc '09 s1 - cool numbers\main.cpp
+	<bits/stdc++.h>
+	<ext/pb_ds/assoc_container.hpp>
+

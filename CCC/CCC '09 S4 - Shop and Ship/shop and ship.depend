@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1587350677 source:e:\dmoj\shop and ship\main.cpp
+	<iostream>
+	<vector>
+	<queue>
+	<unordered_map>
+	<cstring>
+	<stdio.h>
+

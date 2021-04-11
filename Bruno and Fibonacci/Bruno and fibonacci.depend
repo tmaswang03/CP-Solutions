@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1583479932 source:e:\dmoj\bruno and fibonacci\main.cpp
+	<iostream>
+	<vector>
+	<algorithm>
+

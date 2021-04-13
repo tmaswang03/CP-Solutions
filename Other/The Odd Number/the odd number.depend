@@ -1,6 +1,0 @@
-# depslib dependency file v1.0
-1582701660 source:e:\dmoj\the odd number\main.cpp
-	<iostream>
-	<vector>
-	<algorithm>
-

@@ -1,6 +1,0 @@
-# depslib dependency file v1.0
-1582862652 source:e:\dmoj\word scrambler\main.cpp
-	<iostream>
-	<string.h>
-	<string>
-

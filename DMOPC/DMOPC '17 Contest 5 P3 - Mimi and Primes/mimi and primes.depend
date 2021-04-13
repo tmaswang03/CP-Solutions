@@ -1,6 +1,0 @@
-# depslib dependency file v1.0
-1583123226 source:e:\dmoj\mimi and primes\main.cpp
-	<iostream>
-	<vector>
-	<algorithm>
-

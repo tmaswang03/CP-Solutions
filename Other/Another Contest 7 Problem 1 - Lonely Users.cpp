@@ -19,6 +19,7 @@ int main(){
 	cin>>T; 
 	while(T--){
 		cin>>N; 
-		cout<<N-1<<endl; 
+		if(N==2) cout<<2<<endl; 
+		else cout<<N-1<<endl; 
 	}
 }

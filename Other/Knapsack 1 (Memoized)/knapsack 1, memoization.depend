@@ -1,7 +1,0 @@
-# depslib dependency file v1.0
-1588372140 source:e:\dmoj\knapsack 1, memoization\main.cpp
-	<iostream>
-	<algorithm>
-	<math.h>
-	<cstring>
-

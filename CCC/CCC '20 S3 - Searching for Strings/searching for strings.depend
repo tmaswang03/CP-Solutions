@@ -1,7 +1,0 @@
-# depslib dependency file v1.0
-1587230354 source:e:\dmoj\searching for strings\main.cpp
-	<iostream>
-	<unordered_map>
-	<string.h>
-	<cstring>
-

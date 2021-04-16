@@ -1,5 +1,0 @@
-# depslib dependency file v1.0
-1600040749 source:e:\dmoj\checkerboard summation (easy)\main.cpp
-	<bits/stdc++.h>
-	<ext/pb_ds/assoc_container.hpp>
-

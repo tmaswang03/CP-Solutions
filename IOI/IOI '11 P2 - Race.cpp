@@ -14,7 +14,7 @@ typedef long long ll;
 typedef long double ld;
 const ll MM = 2e5+1, ML = 1e6+10;
 using namespace std;
-int N, sz[MM], res = 1e9, freq[ML], k, H[MM][2], L[MM];
+int sz[MM], res = 1e9, freq[ML], k;
 bool blocked[MM];
 struct edge{
     int nd, len;
@@ -52,7 +52,7 @@ void dfs(int cur, int par, int dist, int roads){
 }
 
 void solve(int cur, int par){
-    ms(freq, 0x3f3f3f3f); freq[0] = 0;
+    freq[0] = 0;
     int siz = getsz(cur, par);
     int cnt = getcnt(cur, par, siz);
     blocked[cnt] = 1;
@@ -65,7 +65,7 @@ void solve(int cur, int par){
         }
     }
     while(!st2.empty()){
-        freq[st2.top()] = 0x3f3f3f;
+        freq[st2.top()] = 0x3f3f3f3f;
         st2.pop();
     }
     for(auto && i : v[cnt]){
@@ -80,6 +80,7 @@ int best_path(int N, int K, int H[][2], int L[]){
         v[H[i][0]].pb({H[i][1], L[i]});
         v[H[i][1]].pb({H[i][0], L[i]});
     }
+    ms(freq, 0x3f3f3f3f); 
     solve(0, -1);
     if(res==1e9) res = -1;
     return res;
@@ -87,17 +88,6 @@ int best_path(int N, int K, int H[][2], int L[]){
 
 int main()
 {
-    scan(N); scan(k);
-    for(int i = 0; i < N-1; ++i){
-        scan(H[i][0]); scan(H[i][1]);
-        scan(L[i]);
-    }
-    cout<<best_path(N, k, H, L)<<endl;
-    /*
-    4 3
-    0 1 1
-    1 2 2
-    1 3 4
-    */
+
     return 0;
 }

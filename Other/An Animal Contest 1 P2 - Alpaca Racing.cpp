@@ -13,21 +13,24 @@ void scana(){}template<class T, class...A> void scana(T&t, A&...a) { scan(t); sc
 typedef  unsigned long long ull;
 typedef long long ll;
 typedef long double ld;
-const ll MM = 1e5+3;
+const ll MM = 1e6+3;
 using namespace std;
 ll N, D, K, P, a[MM]; priority_queue<ll> pq; double X;
 int main()
 {
+    boost(); 
+    bool done = 1; 
     cin>>N>>D>>K>>X; X = (100-X)/100;
-    for(int i = 0; i < N; ++i){
-        cin>>a[i]; pq.push(a[i]);
-    }
+    for(int i = 0; i < N; ++i) cin>>a[i]; 
     cin>>P;
-    while(K > 0 && pq.top() >= P){
-        ll cur = pq.top(); pq.pop();
-        pq.push(cur*X);
-        --K;
+    sort(a, a+N, greater<int>()); 
+    for(int i = 0; i < N; ++i){
+        while(K > 0 && a[i] >= P){
+            a[i]*=X; 
+            --K;
+        }
+        if(a[i]>=P) done = 0; 
     }
-    if(pq.top()<P) cout<<"YES"<<endl;
-    else cout<<"NO"<<endl;
+    if(!done) cout<<"NO"<<endl; 
+    else cout<<"YES"<<endl; 
 }

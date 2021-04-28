@@ -13,25 +13,23 @@ void scana(){}template<class T, class...A> void scana(T&t, A&...a) { scan(t); sc
 typedef  unsigned long long ull;
 typedef long long ll;
 typedef long double ld;
-const ll MM = 1e3+10;
 using namespace std;
-ll N, M, D, x, cur, res, a[MM];
+ll SS, TT, cur = -1, cnt; string S, T; vector<ll> v[30];
 int main()
 {
-    for(int T = 0; T < 10; ++T){
-        res = 0; ms(a, 0);
-        cin>>N>>M>>D; cur = N;
-        for(int i = 0; i < M; ++i){
-            cin>>x; ++a[x];
+    cin>>SS>>TT>>S>>T;
+    for(int i = 0; i < SS; ++i) v[S[i]-'a'].pb(i);
+    for(int i = 0; i < TT; ++i){
+        int ch = T[i]-'a';
+        if(v[ch].size()==0){
+            cout<<-1<<endl; return 0;
         }
-        for(int i = 1; i <= D; ++i){
-            if(!cur){
-                cur = N; ++res;
-            }
-            if(a[i]) N+=a[i], cur+=a[i];
-            --cur;
+        int pt = upper_bound(v[ch].begin(), v[ch].end(), cur) - v[ch].begin();
+        if(pt == v[ch].size()){
+            ++cnt; cur = v[ch][0];
         }
-        cout<<res<<endl;
+        else cur = v[ch][pt];
     }
+    cout<<cnt*SS+cur+1<<endl;
     return 0;
 }

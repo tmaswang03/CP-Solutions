@@ -13,25 +13,26 @@ void scana(){}template<class T, class...A> void scana(T&t, A&...a) { scan(t); sc
 typedef  unsigned long long ull;
 typedef long long ll;
 typedef long double ld;
-const ll MM = 1e3+10;
+const ll MM = 2e5+10;
 using namespace std;
-ll N, M, D, x, cur, res, a[MM];
+ll N, a[MM], last[MM], idx[MM], res, bit[MM];
+void upd(int x, int val){
+    for(; x < MM; x+=x&-x) bit[x]+=val;
+}
+ll query(int x){
+    ll ret = 0;
+    for(; x > 0; x-=x&-x) ret+=bit[x];
+    return ret;
+}
 int main()
 {
-    for(int T = 0; T < 10; ++T){
-        res = 0; ms(a, 0);
-        cin>>N>>M>>D; cur = N;
-        for(int i = 0; i < M; ++i){
-            cin>>x; ++a[x];
-        }
-        for(int i = 1; i <= D; ++i){
-            if(!cur){
-                cur = N; ++res;
-            }
-            if(a[i]) N+=a[i], cur+=a[i];
-            --cur;
-        }
-        cout<<res<<endl;
+    cin>>N;
+    for(int i = 1; i <= N; ++i){
+        cin>>a[i];
+        if(idx[a[i]]) upd(idx[a[i]], -1);
+        res+=query(i) - query(idx[a[i]]);
+        idx[a[i]]= i; upd(i, 1);
     }
+    cout<<res<<endl;
     return 0;
 }

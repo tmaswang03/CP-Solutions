@@ -13,25 +13,22 @@ void scana(){}template<class T, class...A> void scana(T&t, A&...a) { scan(t); sc
 typedef  unsigned long long ull;
 typedef long long ll;
 typedef long double ld;
-const ll MM = 1e3+10;
+const ll MM = 1e5+10;
 using namespace std;
-ll N, M, D, x, cur, res, a[MM];
+ll N, Q, x, opt; unordered_map<ll, ll> umap;
 int main()
 {
-    for(int T = 0; T < 10; ++T){
-        res = 0; ms(a, 0);
-        cin>>N>>M>>D; cur = N;
-        for(int i = 0; i < M; ++i){
-            cin>>x; ++a[x];
+    cin>>N>>Q;
+    for(int i = 0; i < N; ++i){
+        cin>>x; ++umap[x];
+    }
+    while(Q--){
+        cin>>opt>>x;
+        if(opt==1){
+            umap[x/2] += umap[x];
+            umap[ceil(x/2.0)] += umap[x]; umap[x] = 0;
         }
-        for(int i = 1; i <= D; ++i){
-            if(!cur){
-                cur = N; ++res;
-            }
-            if(a[i]) N+=a[i], cur+=a[i];
-            --cur;
-        }
-        cout<<res<<endl;
+        else cout<<umap[x]<<endl;
     }
     return 0;
 }

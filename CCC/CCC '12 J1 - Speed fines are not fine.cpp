@@ -13,22 +13,15 @@ void scana(){}template<class T, class...A> void scana(T&t, A&...a) { scan(t); sc
 typedef  unsigned long long ull;
 typedef long long ll;
 typedef long double ld;
-const ll MM = 110;
 using namespace std;
-int dp[MM][MM], N, x;
+int a, b;
 int main()
 {
-    cin>>N;
-    for(int i = 1; i <= N; ++i){
-        for(int j = 1; j <= i; ++j){
-            cin>>x;
-            dp[i][j] = max(dp[i-1][j], dp[i-1][j-1]) + x;
-        }
-    }
-    for(int i = 1; i <= N; ++i){
-        x = max(x, dp[N][i]);
-    }
-    cout<<x<<endl;
+    cin>>a>>b;
+    int diff = b - a;
+    if(diff<=0) cout<<"Congratulations, you are within the speed limit!"<<endl;
+    else if(diff>=1 && diff <= 20) cout<<"You are speeding and your fine is $100."<<endl;
+    else if(diff>=21 && diff <= 30) cout<<"You are speeding and your fine is $270."<<endl;
+    else cout<<"You are speeding and your fine is $500."<<endl;
     return 0;
 }
-

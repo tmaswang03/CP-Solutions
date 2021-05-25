@@ -13,22 +13,17 @@ void scana(){}template<class T, class...A> void scana(T&t, A&...a) { scan(t); sc
 typedef  unsigned long long ull;
 typedef long long ll;
 typedef long double ld;
-const ll MM = 110;
 using namespace std;
-int dp[MM][MM], N, x;
+int a, b;
 int main()
 {
-    cin>>N;
-    for(int i = 1; i <= N; ++i){
-        for(int j = 1; j <= i; ++j){
-            cin>>x;
-            dp[i][j] = max(dp[i-1][j], dp[i-1][j-1]) + x;
-        }
+    cin>>a>>b;
+    if(a<2) cout<<"Before"<<endl;
+    else if(a>2) cout<<"After"<<endl;
+    else{
+        if(b>18) cout<<"After"<<endl;
+        else if(b<18) cout<<"Before"<<endl;
+        else cout<<"Special"<<endl; 
     }
-    for(int i = 1; i <= N; ++i){
-        x = max(x, dp[N][i]);
-    }
-    cout<<x<<endl;
     return 0;
 }
-

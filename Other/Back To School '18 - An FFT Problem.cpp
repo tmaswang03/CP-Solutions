@@ -13,22 +13,24 @@ void scana(){}template<class T, class...A> void scana(T&t, A&...a) { scan(t); sc
 typedef  unsigned long long ull;
 typedef long long ll;
 typedef long double ld;
-const ll MM = 110;
+const ll MM = 2e3+10, mod = 998244353;
 using namespace std;
-int dp[MM][MM], N, x;
+ll N, M, a[MM], dp[MM][MM];
 int main()
 {
+    // idea : dp[i][j] = sum of combinations of first i books using j books
+    // = dp[i-1][j] + a[i]*dp[i-1][j-1]
     cin>>N;
+    for(int i = 1; i <= N; ++i) cin>>a[i];
     for(int i = 1; i <= N; ++i){
-        for(int j = 1; j <= i; ++j){
-            cin>>x;
-            dp[i][j] = max(dp[i-1][j], dp[i-1][j-1]) + x;
+        dp[i][1] = (dp[i-1][1] + a[i])%mod;
+        for(int j = 2; j <= i; ++j){
+            dp[i][j] += (a[i]*dp[i-1][j-1])%mod;
+            dp[i][j] += dp[i-1][j]; dp[i][j] %=mod;
         }
     }
     for(int i = 1; i <= N; ++i){
-        x = max(x, dp[N][i]);
+        cout<<(dp[N][i] + mod)%mod<<" ";
     }
-    cout<<x<<endl;
     return 0;
 }
-

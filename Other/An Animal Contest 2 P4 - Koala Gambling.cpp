@@ -13,26 +13,32 @@ void scana(){}template<class T, class...A> void scana(T&t, A&...a) { scan(t); sc
 typedef  unsigned long long ull;
 typedef long long ll;
 typedef long double ld;
-const ll MM = 1e5+10, mod = 1e9+7;
+const ll MM = 6e2+10;
 using namespace std;
-ll N, M, dp[MM], x, y, ans, cnt[MM]; vector<int> v[MM];
+int T, a[MM], N;
 int main()
 {
-    cin>>N>>M;
-    for(int i = 0; i < M; ++i){
-        cin>>x>>y; v[x].pb(y);
-    }
-    for(int i = 1; i <= N; ++i){
-        cnt[i] = max(cnt[i], 1LL);
-        for(auto && j : v[i]){
-            cnt[j]+=cnt[i]; cnt[j]%=mod; 
-            dp[j] += (dp[i]+cnt[i]);
-            dp[j]%=mod; 
+// dp[l][r] = max(sum diff between a[l] - dp[l+1][r], a[r] - dp[l][r-1]
+// dp[l-1][r]
+    boost();
+    cin>>T;
+    while(T--){
+        cin>>N;
+        for(int i = 0; i < N; ++i) cin>>a[i];
+        sort(a, a+N);
+        if(N%2){
+            for(int i = 0; i < N-1; ++i) cout<<a[i]<<" ";
+            cout<<a[N-1]<<endl;
         }
-        if(v[i].size()==0){
-            ans = (ans + dp[i])%mod;
+        else{
+            if(a[0]==a[N-1]) cout<<-1<<endl;
+            else{
+                for(int i = 0; i < N/2-1; ++i){
+                    cout<<a[i]<<" "<<a[i+N/2]<<" ";
+                }
+                cout<<a[N/2-1]<<" "<<a[N-1]<<endl;
+            }
         }
     }
-    cout<<ans<<endl;
     return 0;
 }

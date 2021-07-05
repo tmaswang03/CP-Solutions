@@ -30,4 +30,5 @@ int main()
         cout<<a[i]<<" ";
     }
     return 0;
+    // This dude is the dumbest dude i've ever seen you should probably ignore these solutions.
 }

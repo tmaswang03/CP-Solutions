@@ -11,15 +11,28 @@ using namespace std;
 // convex hull tricks 1,
 ll dp[MAXN], arr[MAXN], pfsum[MAXN],a,b,c;
 
-long double gett(ll j, ll k){
-    return (1.0* (dp[j]-dp[k] - a*(arr[j-1]* arr[j-1] -arr[k-1]*arr[k-1]) - b*(arr[j-1] - arr[k-1]))) / (2.0*(arr[j-1] - arr[k-1]) );
- }
+ll getsum(ll L, ll R){
+    ll temp = pfsum[R+1]-pfsum[L];
+    return temp;
+}
+
+struct line{
+    ll m,b;
+    ll getValue(ll x){
+        return m*x + b;
+    }
+    long double inter(line l1){
+        ll one = l1.b-b;
+        ll two  = m - l1.m;
+        return  (long double)one / (long double)two;
+    }
+};
 //x=ax2+bx+c,
 int main()
 {
     pfsum[0]=0;
     ms(dp,0);
-    vector<ll> hull;
+    vector<line> hull;
     ll N; scan(N);
     cin>>a>>b>>c;
     ll start = 0;
@@ -34,26 +47,38 @@ int main()
     for(int i = 1; i <= N; ++i){
         dp[i]=a*pfsum[i]*pfsum[i]+b*pfsum[i]+c;
         while(start <= (ll) hull.size() - 2) {
-            ll line1 = hull[start], line2 = hull[start+1];
-            if(gett(line1, line2) > pfsum[i]) ++start;
-            else break;
+            line line1 = hull[start];
+            line line2 = hull[start+1];
+            if(line1.getValue(pfsum[i]) < line2.getValue(pfsum[i])) {
+                ++start;
+            }
+            else {
+                break;
+            }
         }
         if(i>1){
-            ll temp = hull[start];
-            dp[i]=max(dp[i],dp[temp] + a*(pfsum[i]-pfsum[temp-1])*(pfsum[i]-pfsum[temp-1]) + c +b*(pfsum[i]-pfsum[temp-1]));
+            dp[i]=max(dp[i],hull[start].getValue(pfsum[i]) + a*pfsum[i]*pfsum[i] + c +b*pfsum[i]);
         }
         // i = end, dp[i] = begin
+        line new1{-2 * a * pfsum[i], dp[i]+a*pfsum[i]*pfsum[i]-b*pfsum[i]};
         while(start <= (ll) hull.size() - 2) {
-            ll A = hull[hull.size()-2], B = hull[hull.size()-1];
-            if(gett(A,B)<=gett(B,i)){
+            line A = hull[hull.size()-2];
+            line B = hull[hull.size()-1];
+            long double inter1 = A.inter(B); // b.b-b.a / a.m-b.m
+            long double inter2 = B.inter(new1); //n.b-b.b / b.m
+            if(inter2<inter1){
                 hull.pop_back();
+
             }
             else{
                 break;
             }
         }
-        hull.push_back(i);
+        hull.push_back(new1);
     }
+//    for(int i = 0; i <= N; ++i){
+//        cout<<dp[i]<<endl;
+//    }
     cout<<dp[N]<<endl;
 
     return 0;

@@ -13,21 +13,25 @@ void scana(){}template<class T, class...A> void scana(T&t, A&...a) { scan(t); sc
 typedef  unsigned long long ull;
 typedef long long ll;
 typedef long double ld;
-const ll MM = 1e5+10;
 using namespace std;
-ll dp[MM], N, W, a, b, res = 0;
+string word;
+bool monkey(int l, int r) {
+    if(l > r) return 0;
+    if(l==r && word[l] == 'A') return 1;
+    bool monke = 0;
+    for(int i = l+1; i < r; ++i) {
+        if(word[i] == 'N') monke|=(monkey(l, i-1) && monkey(i+1, r));
+    }
+    if(word[l] == 'B' && word[r] == 'S') monke|=(monkey(l+1, r-1));
+    return monke;
+}
 int main()
 {
-    cin>>N>>W; ms(dp, 0x3f3f3f);
-    dp[0] = 0;
-    // dp[i] = minimum weight for value of i
-    for(int i = 0; i < N; ++i){
-        cin>>a>>b;
-        for(int j = MM -1; j >= b; --j){
-            dp[j] = min(dp[j], dp[j-b] + a);
-            if(dp[j] <= W) res = max(res, 1LL*j);
-        }
+    for(;;) {
+        cin>>word;
+        if(word == "X") return 0;
+        if(monkey(0, word.length() - 1)) cout<<"YES"<<endl;
+        else cout<<"NO"<<endl;
     }
-    cout<<res<<endl;
     return 0;
 }

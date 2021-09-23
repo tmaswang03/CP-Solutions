@@ -13,21 +13,21 @@ void scana(){}template<class T, class...A> void scana(T&t, A&...a) { scan(t); sc
 typedef  unsigned long long ull;
 typedef long long ll;
 typedef long double ld;
-const ll MM = 1e5+10;
+const ll MN = 1e3+10, MC = 1e4+10, mod = 1e9+7;
 using namespace std;
-ll dp[MM], N, W, a, b, res = 0;
+ll dp[2][MC], N, C, ssa[MC];
+ll mmod(ll x){ return ((x % mod) + mod) % mod; }
 int main()
 {
-    cin>>N>>W; ms(dp, 0x3f3f3f);
-    dp[0] = 0;
-    // dp[i] = minimum weight for value of i
-    for(int i = 0; i < N; ++i){
-        cin>>a>>b;
-        for(int j = MM -1; j >= b; --j){
-            dp[j] = min(dp[j], dp[j-b] + a);
-            if(dp[j] <= W) res = max(res, 1LL*j);
+    cin>>N>>C; dp[0][0] = 1;
+    for(int i = 1; i <= N; ++i){
+        int ci = i%2, pi = (i+1)%2;
+        for(int j = 0; j <= C; ++j) dp[ci][j] = 0;
+        for(int j = C; j >= 0; --j) ssa[j] = (dp[pi][j] + ssa[j+1])%mod;
+        for(int j = 0; j <= C; ++j){
+            dp[ci][j] = mmod(ssa[j-min(i-1, j)] - ssa[j+1]);
         }
     }
-    cout<<res<<endl;
+    cout<<dp[N%2][C]<<endl;
     return 0;
 }

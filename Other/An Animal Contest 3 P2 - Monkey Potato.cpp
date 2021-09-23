@@ -13,21 +13,27 @@ void scana(){}template<class T, class...A> void scana(T&t, A&...a) { scan(t); sc
 typedef  unsigned long long ull;
 typedef long long ll;
 typedef long double ld;
-const ll MM = 1e5+10;
 using namespace std;
-ll dp[MM], N, W, a, b, res = 0;
+ll K, D, a[10];
 int main()
 {
-    cin>>N>>W; ms(dp, 0x3f3f3f);
-    dp[0] = 0;
-    // dp[i] = minimum weight for value of i
-    for(int i = 0; i < N; ++i){
-        cin>>a>>b;
-        for(int j = MM -1; j >= b; --j){
-            dp[j] = min(dp[j], dp[j-b] + a);
-            if(dp[j] <= W) res = max(res, 1LL*j);
-        }
+    cin>>K>>D;
+    for(int i = 0; i < D; ++i) cin>>a[i];
+    sort(a, a+D);
+    if(D == 1 && a[0] == 0) {
+        cout<<-1<<endl; return 0;
     }
-    cout<<res<<endl;
+    if(a[0] == 0){
+        if(K>=2) {
+            cout<<a[1];
+            for(int i = 0; i < K-2; ++i) cout<<a[0];
+            cout<<a[1]<<endl;
+        }
+        else cout<<a[1]<<endl;
+    }
+    else {
+        for(int i = 0; i < K; ++i) cout<<a[0];
+        cout<<endl;
+    }
     return 0;
 }

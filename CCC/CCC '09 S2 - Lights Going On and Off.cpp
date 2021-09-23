@@ -13,21 +13,32 @@ void scana(){}template<class T, class...A> void scana(T&t, A&...a) { scan(t); sc
 typedef  unsigned long long ull;
 typedef long long ll;
 typedef long double ld;
-const ll MM = 1e5+10;
 using namespace std;
-ll dp[MM], N, W, a, b, res = 0;
+int R, L, a[35], vis[35][300], tmp; set<int> st;
+void dfs(int cur, ll prev) {
+    if(cur==R) {
+        st.insert(prev); return;
+    }
+    ll x = a[cur]^prev, y = a[cur];
+    if(!vis[cur][x]) {
+        dfs(cur+1, x); vis[cur][x] = 1;
+    }
+    if(!vis[cur][y]) {
+        dfs(cur+1, y); vis[cur][y] = 1;
+    }
+}
 int main()
 {
-    cin>>N>>W; ms(dp, 0x3f3f3f);
-    dp[0] = 0;
-    // dp[i] = minimum weight for value of i
-    for(int i = 0; i < N; ++i){
-        cin>>a>>b;
-        for(int j = MM -1; j >= b; --j){
-            dp[j] = min(dp[j], dp[j-b] + a);
-            if(dp[j] <= W) res = max(res, 1LL*j);
+    cin>>R>>L;
+    for(int i = 0; i < R; ++i) {
+        ll cur = 0;
+        for(int j = 0; j < L; ++j){
+            cin>>a[i]; cur<<=1; cur|=a[i];
         }
+        a[i] = cur;
     }
-    cout<<res<<endl;
+    tmp = a[0];
+    dfs(1, tmp);
+    cout<<st.size()<<endl;
     return 0;
 }

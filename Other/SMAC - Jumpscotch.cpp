@@ -13,21 +13,19 @@ void scana(){}template<class T, class...A> void scana(T&t, A&...a) { scan(t); sc
 typedef  unsigned long long ull;
 typedef long long ll;
 typedef long double ld;
-const ll MM = 1e5+10;
+const ll MM = 1e6+10;
 using namespace std;
-ll dp[MM], N, W, a, b, res = 0;
+ll dp[MM], a[MM], D, N; deque<ll> dq;
 int main()
 {
-    cin>>N>>W; ms(dp, 0x3f3f3f);
-    dp[0] = 0;
-    // dp[i] = minimum weight for value of i
-    for(int i = 0; i < N; ++i){
-        cin>>a>>b;
-        for(int j = MM -1; j >= b; --j){
-            dp[j] = min(dp[j], dp[j-b] + a);
-            if(dp[j] <= W) res = max(res, 1LL*j);
-        }
+    cin>>N>>D>>a[1]; dp[1] = a[1]; dq.push_back(1);
+    for(int i = 2; i <= N; ++i){
+        cin>>a[i];
+        while(!dq.empty() && dq.front() < i - D) dq.pop_front();
+        dp[i] = a[i] + dp[dq.front()];
+        while(!dq.empty() && dp[i] <= dp[dq.back()]) dq.pop_back();
+        dq.push_back(i);
     }
-    cout<<res<<endl;
+    cout<<dp[N]<<endl;
     return 0;
 }

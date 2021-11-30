@@ -1,7 +1,7 @@
 # CP-Solutions
 Here lies my Competitive Programming Solution across various sites that I use :). Please ignore the bad formatting. 
 
-#💻 Competitive Progamming Accounts
+# 💻 Competitive Progamming Accounts
 
 DMOJ: https://dmoj.ca/user/Tmaswang03
 
